@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSRS Grand Exchange Prices</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #1e1e1e; color: white; }
+    table { width: 50%; margin: auto; border-collapse: collapse; background: #2e2e2e; }
+    th, td { border: 1px solid white; padding: 10px; }
+    th { background-color: #444; }
+    button { margin-top: 20px; padding: 10px 20px; cursor: pointer; background: #4CAF50; color: white; border: none; }
+    form { margin-top: 20px; }
+    input { padding: 10px; margin: 5px; }
+  </style>
+</head>
+<body>
+<h1>Old School RuneScape Grand Exchange Prices</h1>
+
+<!-- Vorm uue itemi lisamiseks -->
+<form action="/add-item" method="post">
+  <input type="text" name="itemName" placeholder="Item Name" required>
+  <input type="number" name="itemId" placeholder="Item ID" required>
+  <button type="submit">Add Item</button>
+</form>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Buy Price</th>
+    <th>Sell Price</th>
+  </tr>
+  <tr th:each="entry : ${prices}">
+    <td th:text="${entry.key}"></td>
+    <td th:text="${entry.value.high}"></td>
+    <td th:text="${entry.value.low}"></td>
+  </tr>
+</table>
+
+<button onclick="location.reload();">Refresh Prices</button>
+</body>
+</html>

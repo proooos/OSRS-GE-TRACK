@@ -1,0 +1,3 @@
+com\osrsge\osrsgetracker\service\GeService.class
+com\osrsge\osrsgetracker\controller\GeController.class
+com\osrsge\osrsgetracker\OsrsGeTrackerApplication.class
